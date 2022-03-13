@@ -2,7 +2,7 @@ from pathlib import Path
 
 from setuptools import find_packages, setup
 
-long_description = Path("README.md").read_text()
+long_description = Path("pkg_docs.md").read_text()
 
 setup(
     name="budget-constrained-CB",
@@ -19,10 +19,9 @@ setup(
     },
     classifiers=[
         "Programming Language :: Python :: 3",
-        "License :: OSI Approved :: ISC License",
+        "License :: OSI Approved :: ISC License (ISCL)",
         "Operating System :: OS Independent",
     ],
-    package_dir={"": "budgetcb"},
     packages=find_packages(exclude=["tests"]),
     include_package_data=True,
     install_requires=[],
