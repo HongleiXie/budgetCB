@@ -29,7 +29,7 @@ Then run `make` to see the options for running checks, tests etc.
 
 ### Benchmark different methods against random and greedy policy
 
-Check out the [notebook](https://github.com/HongleiXie/budgetCB/blob/master/example.ipynb) to see the comparison among a variety of methods including `UCB-ALP`, `LinUCB` and `HATCH`, against the two baseline policies `Random` and `Greedy`.
+Check out the [notebook](https://github.com/HongleiXie/budgetCB/blob/master/example_data/example.ipynb) to see the comparison among a variety of methods including `UCB-ALP`, `LinUCB` and `HATCH`, against the two baseline policies `Random` and `Greedy`.
 
 Rolling mean of rewards v.s. number of rounds:
 

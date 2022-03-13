@@ -13,9 +13,7 @@ setup(
     python_requires=">=3.7",
     url="https://github.com/HongleiXie/budgetCB",
     packages=find_packages(exclude=["tests"]),
-    package_data={
-        "": ["py.typed"],
-    },
+    include_package_data=True,
     install_requires=[],
     extras_require={
         "dev": [
