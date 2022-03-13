@@ -27,6 +27,14 @@ Then run `make` to see the options for running checks, tests etc.
 
 `. .venv/bin/activate` activates the virtualenv. When the requirements in `setup.py` change, the virtualenv is updated by the make targets that use the virtualenv.
 
+## Use it
+
+Now you can simply install it from PyPI:
+
+```
+pip install budget-constrained-CB
+```
+
 ### Benchmark different methods against random and greedy policy
 
 Check out the [notebook](https://github.com/HongleiXie/budgetCB/blob/master/example_data/example.ipynb) to see the comparison among a variety of methods including `UCB-ALP`, `LinUCB` and `HATCH`, against the two baseline policies `Random` and `Greedy`.
