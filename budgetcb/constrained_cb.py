@@ -42,7 +42,7 @@ class LinUCB(MAB):
             self.AaI[arm] = np.eye(self.ndims)
             self.ba[arm] = np.zeros((self.ndims, 1))
 
-    def play(self, tround: int, context: np.ndarray) -> int:  # type: ignore
+    def play(self, tround: int, context: np.ndarray) -> int: # type: ignore
         """
         Args:
             tround (int): the index of rounds, starting from 0
@@ -69,7 +69,6 @@ class LinUCB(MAB):
 
             # take the best arm with the probability due to the resource constraint
             rand = np.random.uniform()
-
             if rand < avg_remaining_budget:
                 # take action
                 if best_arm != self.dummy_arm:
