@@ -17,7 +17,7 @@ class LinUCBTest(unittest.TestCase):
             "B": 3,
             "dummy_arm": 0,
         }
-        self.policy = LinUCB(**self.config)
+        self.policy = LinUCB(**self.config)  # type: ignore
         self.state = np.random.random(30).reshape(10, 3)
         self.action = np.random.randint(0, 2, 10)
         self.reward = np.random.random(10)
@@ -28,7 +28,7 @@ class LinUCBTest(unittest.TestCase):
 
     def test_sherman_morrison_update(self):
         context = np.array([1, 0.8, 0.5]).reshape(3, 1)
-        old_Aa = np.eye(self.config["ndims"])
+        old_Aa = np.eye(self.config["ndims"])  # type: ignore
         np.testing.assert_equal(self.policy.AaI[0], old_Aa)  # arm 0
         new_Aa = old_Aa + np.dot(context, context.T)
         expected_AaI = np.linalg.inv(new_Aa)
