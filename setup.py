@@ -1,8 +1,7 @@
-from pathlib import Path
-
 from setuptools import find_packages, setup
 
-long_description = Path("pkg_docs.md").read_text()
+with open("docs/pkg_docs.md", "r", encoding="utf-8") as fh:
+    long_description = fh.read()
 
 setup(
     name="budget-constrained-CB",
