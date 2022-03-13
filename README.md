@@ -1,4 +1,4 @@
-# budgetcb
+# Budget Contextual Bandits
 
 Constrained Contextual Bandits for Personalized Recommendation
 
