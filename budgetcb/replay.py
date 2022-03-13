@@ -42,7 +42,7 @@ class ReplayEvaluator(object):
         ix_chosen = list()
 
         for i in range(self.arms.shape[0]):
-            arm = np.int(self.arms[i])  # type: ignore
+            arm = np.int32(self.arms[i])  # type: ignore
             xt = (
                 self.contexts[i, :].reshape(-1, 1)
                 if self.contexts is not None
