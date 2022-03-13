@@ -1,5 +1,5 @@
 # type: ignore
-from typing import Any, Optional, int
+from typing import Any, Optional
 
 import numpy as np
 from joblib import Parallel, delayed
@@ -29,7 +29,8 @@ class LinUCB(MAB):
             T (int): total global time budget
             B (int): total resource budget
             dummy_arm (int): the arm that does not consume any resource
-        """ # type: ignore
+        """
+
         super().__init__(narms, T, B, dummy_arm)
         self.ndims = ndims
         self.alpha = alpha

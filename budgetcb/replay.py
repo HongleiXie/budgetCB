@@ -42,7 +42,7 @@ class ReplayEvaluator(object):
         ix_chosen = list()
 
         for i in range(self.arms.shape[0]):
-            arm = np.int(self.arms[i]) # type: ignore
+            arm = np.int(self.arms[i])  # type: ignore
             xt = (
                 self.contexts[i, :].reshape(-1, 1)
                 if self.contexts is not None
@@ -69,7 +69,7 @@ class ReplayEvaluator(object):
                         self.policy.update(
                             arm=self.arms[ix_fit],
                             reward=self.rewards[ix_fit],
-                            context=self.contexts[ix_fit, :], # type: ignore
+                            context=self.contexts[ix_fit, :],  # type: ignore
                             tround=self.match_num,
                         )
 
