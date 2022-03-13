@@ -11,6 +11,7 @@ setup(
     long_description=long_description,
     long_description_content_type="text/markdown",
     python_requires=">=3.7",
+    url="https://github.com/HongleiXie/budgetCB",
     packages=find_packages(exclude=["tests"]),
     package_data={
         "": ["py.typed"],
@@ -25,6 +26,11 @@ setup(
             "flake8-colors==0.1.9",
             "pre-commit==2.14.0",
             "pytest==6.2.4",
+            "numpy==1.21.0",
+            "joblib==1.0.1",
+            "scipy==1.8.0",
+            "matplotlib==3.5.1",
+            "scikit-learn==1.0.2",
         ]
     },
 )

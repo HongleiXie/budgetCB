@@ -1,7 +1,10 @@
-# use PyCharm default line length of 120
+[tool.autopep8]
+recursive = true
+exclude = "./.venv/*"
+max_line_length = 120
+aggresive = 1
+ignore = "E127"
 
-[tool.black]
-line-length = 120
 
 [tool.isort]
 # use black compatible settings
