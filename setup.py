@@ -28,7 +28,7 @@ setup(
             "pytest==6.2.4",
             "numpy==1.21.0",
             "joblib==1.0.1",
-            "scipy==1.8.0",
+            "scipy>=1.7.3",
             "matplotlib==3.5.1",
             "scikit-learn==1.0.2",
         ]
