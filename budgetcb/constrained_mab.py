@@ -29,7 +29,7 @@ class EpsGreedy(MAB):
         super().__init__(narms, T, B, dummy_arm)
         self.epsilon = epsilon
         self.b_tau = self.B  # changing resource budget
-        self.Na = np.zeros(self.narms, np.int)
+        self.Na = np.zeros(self.narms, np.int)  # type: ignore
         self.Qa = np.zeros(self.narms)
 
     def play(self, tround: int, context: Optional[np.ndarray] = None) -> int:
