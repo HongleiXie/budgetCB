@@ -5,7 +5,7 @@ with open("docs/pkg_docs.md", "r", encoding="utf-8") as fh:
 
 setup(
     name="budget-constrained-CB",
-    version="0.0.1",
+    version="0.0.0",
     author="Honglei Xie",
     author_email="xhonglei2007@gmail.com",
     description="Constrained Contextual Bandits for Personalized Recommendation",
