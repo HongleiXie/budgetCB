@@ -25,13 +25,13 @@ def _get_ALP_predict(
 
 
 class _LinUCBnTSSingle:
-    def __init__(self, alpha, context_dim):
+    def __init__(self, alpha: float, context_dim: int):
         self.alpha = alpha
         if "Ainv" not in dir(self):
             self.Ainv = np.eye(context_dim)
             self.b = np.zeros((context_dim, 1))
 
-    def fit(self, X, y):
+    def fit(self, X: np.ndarray, y: np.ndarray) -> None:
         if len(X.shape) == 1:
             X = X.reshape((1, -1))
         self.Ainv = np.eye(X.shape[1])
@@ -39,7 +39,7 @@ class _LinUCBnTSSingle:
 
         self.partial_fit(X, y)
 
-    def partial_fit(self, X, y):
+    def partial_fit(self, X: np.ndarray, y: np.ndarray) -> None:
         if len(X.shape) == 1:
             X = X.reshape((1, -1))
         if "Ainv" not in dir(self):
@@ -54,7 +54,7 @@ class _LinUCBnTSSingle:
 
         self.b += sumb
 
-    def predict(self, X):
+    def predict(self, X: np.ndarray) -> None:
         if len(X.shape) == 1:
             X = X.reshape((1, -1))
 

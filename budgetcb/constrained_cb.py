@@ -7,7 +7,7 @@ from budgetcb.base import MAB
 from budgetcb.helper import _get_ALP_predict, _LinUCBnTSSingle, _sherman_morrison_update
 
 
-class LinUcb(MAB):
+class LinUCB(MAB):
     """
     Constrained LinUCB
     References:
@@ -29,7 +29,7 @@ class LinUcb(MAB):
             B (int): total resource budget
             dummy_arm (int): the arm that does not consume any resource
         """
-        super().__init__(narms, T, B, dummy_arm)
+        super().__init__(narms, T, B, dummy_arm)  # type: ignore
         self.ndims = ndims
         self.alpha = alpha
         self.b_tau = self.B
@@ -42,7 +42,7 @@ class LinUcb(MAB):
             self.AaI[arm] = np.eye(self.ndims)
             self.ba[arm] = np.zeros((self.ndims, 1))
 
-    def play(self, tround: int, context: np.ndarray) -> int:
+    def play(self, tround: int, context: np.ndarray) -> int:  # type: ignore
         """
         Args:
             tround (int): the index of rounds, starting from 0
@@ -88,7 +88,7 @@ class LinUcb(MAB):
         reward: float,
         context: Optional[np.ndarray] = None,
         tround: Optional[int] = None,
-    ) -> "LinUCB":
+    ) -> Any:
 
         if context is None:
             raise ValueError("Must supply with context in LinUCB class")
@@ -154,7 +154,7 @@ class UcbAlp(MAB):
             alp = _get_ALP_predict(
                 self.mu_star, np.array(self.pai), avg_remaining_budget
             )  # choose the best arm with proba
-            probs_of_action = alp.x
+            probs_of_action = alp.x  # type: ignore
             rand = np.random.uniform()
             decision = ["action" if rand < p else "skip" for p in probs_of_action]
 
@@ -187,7 +187,7 @@ class UcbAlp(MAB):
         self.C[j, arm] += 1
         self.mu_bar[j, arm] = (self.mu_bar[j, arm] + reward) / self.C[j, arm]
         self.mu_hat[j, arm] = (
-            self.mu_bar[j, arm] + np.sqrt(np.log(tround + 1)) / 2 * self.C[j, arm]
+            self.mu_bar[j, arm] + np.sqrt(np.log(tround + 1)) / 2 * self.C[j, arm]  # type: ignore
         )
         best_arm = np.argmax(self.mu_hat[j, :])
         self.mu_star[j] = self.mu_hat[j, best_arm]
@@ -205,7 +205,7 @@ class HATCH(MAB):
     def __init__(
         self,
         narms: int,
-        gmm: any,
+        gmm: any,  # type: ignore
         J: int,
         pai: np.ndarray,
         T: int,
@@ -236,8 +236,8 @@ class HATCH(MAB):
         self.pai = np.array(pai)
         self.context_dic = context_dic
         self.gmm = gmm
-        self.context_dim = len(context_dic.get(dummy_arm))
-        self._add_common_lin(alpha, narms, njobs, J, self.context_dim)
+        self.context_dim = len(context_dic.get(dummy_arm))  # type: ignore
+        self._add_common_lin(alpha, narms, njobs, J, self.context_dim)  # type: ignore
         self.ustar = [0 for i in range(J)]
 
         self.b_tau = self.B
@@ -246,7 +246,7 @@ class HATCH(MAB):
 
     def _add_common_lin(
         self, alpha: float, narms: int, njobs: int, J: int, context_dim: dict
-    ):
+    ) -> None:
 
         if isinstance(alpha, int):
             alpha = float(alpha)
@@ -257,9 +257,9 @@ class HATCH(MAB):
         self.narms = narms
         self.J = J
         self._oraclesa = [
-            [_LinUCBnTSSingle(1.0, context_dim) for n in range(narms)] for i in range(J)
+            [_LinUCBnTSSingle(1.0, context_dim) for n in range(narms)] for i in range(J)  # type: ignore
         ]
-        self._oraclesj = [_LinUCBnTSSingle(1.0, context_dim) for n in range(J)]
+        self._oraclesj = [_LinUCBnTSSingle(1.0, context_dim) for n in range(J)]  # type: ignore
         self.uj = np.array([float(1) for i in range(self.J)])
 
     def play(self, tround: int, context: np.ndarray) -> int:
@@ -296,9 +296,9 @@ class HATCH(MAB):
         reward: float,
         context: Optional[np.ndarray] = None,
         tround: Optional[int] = None,
-    ) -> "HATCH":
+    ) -> "HATCH":  # type: ignore
 
-        self.ndim = context.shape[1]
+        self.ndim = context.shape[1]  # type: ignore
         Xj = np.array(
             list(map(lambda x: self.context_dic[x], list(self.gmm.predict(context))))
         )
@@ -318,7 +318,7 @@ class HATCH(MAB):
         Xj: np.ndarray,
         arm: np.ndarray,
         reward: np.ndarray,
-    ):
+    ) -> None:
 
         xj = self.gmm.predict(context)
         this_context = xj == j
