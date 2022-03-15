@@ -7,27 +7,7 @@ Constrained Contextual Bandits for Personalized Recommendation. Extending a few 
 - UCB-ALP [[2]](#2)
 - HATCH [[3]](#3)
 
-## Development
-
-### Prerequisites
-
-- make
-- node (required for pyright. Install via `brew install node`)
-- python >= 3.7
-
-### Getting started
-
-To get started run `make install`. This will:
-
-- install git hooks for formatting & linting on git push
-- create the virtualenv in _.venv/_
-- install this package in editable mode
-
-Then run `make` to see the options for running checks, tests etc.
-
-`. .venv/bin/activate` activates the virtualenv. When the requirements in `setup.py` change, the virtualenv is updated by the make targets that use the virtualenv.
-
-## Use it
+## Get started
 
 Now you can simply install it from PyPI:
 
@@ -35,7 +15,7 @@ Now you can simply install it from PyPI:
 pip install budget-constrained-CB
 ```
 
-### Benchmark different methods against random and greedy policy
+## Benchmark different methods against random and greedy policy
 
 Check out the [notebook](https://github.com/HongleiXie/budgetCB/blob/master/example_data/example.ipynb) to see the comparison among a variety of methods including `UCB-ALP`, `LinUCB` and `HATCH`, against the two baseline policies `Random` and `Greedy`.
 
@@ -43,7 +23,7 @@ Rolling mean of rewards v.s. number of rounds:
 
 ![pic](./output.png)
 
-### Reference
+## Reference
 
 <a id="1">[1]</a>
 Li, Lihong, et al. "A contextual-bandit approach to personalized news article recommendation." *Proceedings of the 19th international conference on World wide web.* 2010.
