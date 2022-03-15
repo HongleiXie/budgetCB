@@ -1,6 +1,6 @@
 # Budget Contextual Bandits
 
-Constrained Contextual Bandits for Personalized Recommendation. Adding budget constraints to a few popular MAB/CB methods:
+Constrained Contextual Bandits for Personalized Recommendation. Extending a few popular MAB/CB methods by adding budget constraints.
 
 - Context-Free Epsilon Greedy
 - LinUCB [[1]](#1)
